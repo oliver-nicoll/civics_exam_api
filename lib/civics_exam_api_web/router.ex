@@ -21,9 +21,11 @@ defmodule CivicsExamApiWeb.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", CivicsExamApiWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", CivicsExamApiWeb do
+    pipe_through :api
+
+    resources "/questions", QuestionController, only: [:index, :show]
+  end
 
   # Enables LiveDashboard only for development
   #
